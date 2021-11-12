@@ -11,7 +11,9 @@ StaticDemo::StaticDemo() {
 	StaticDemo::numberInstances++;
 }
 
-StaticDemo::~StaticDemo() {}
+StaticDemo::~StaticDemo() {
+	StaticDemo::numberInstances--;
+}
 
 int StaticDemo::getNumbInstances(){
 	return StaticDemo::numberInstances;

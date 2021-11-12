@@ -15,13 +15,18 @@ int main() {
 	cout <<"We have "<<std::to_string(StaticDemo::getNumbInstances())<<" StaticDemo objects" << endl;
 
 	//first instance
-	StaticDemo sd1;
-	cout <<"We have "<<std::to_string(sd1.getNumbInstances())<<" StaticDemo objects" << endl;
-
-	//second instance
-	StaticDemo sd2;
+	{
+		StaticDemo sd1;
+		cout <<"We have "<<std::to_string(sd1.getNumbInstances())<<" StaticDemo objects" << endl;
+	
+		{
+			//second instance
+			StaticDemo sd2;
+			cout <<"We have "<<std::to_string(sd2.getNumbInstances())<<" StaticDemo objects" << endl;
+		}
+		cout <<"We have "<<std::to_string(StaticDemo::getNumbInstances())<<" StaticDemo objects" << endl;
+	}
 
 	//notice that sd1 and sd2 getNumbInstances() calls both return 2
-	cout <<"We have "<<std::to_string(sd2.getNumbInstances())<<" StaticDemo objects" << endl;
-	cout <<"We have "<<std::to_string(sd1.getNumbInstances())<<" StaticDemo objects" << endl;
+	cout <<"We have "<<std::to_string(StaticDemo::getNumbInstances())<<" StaticDemo objects" << endl;
 }
